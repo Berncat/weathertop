@@ -1,0 +1,28 @@
+<table class="ui fixed table">
+  <thead>
+    <tr>
+      <th>Song</th>
+      <th>Artist</th>
+      <th>Duration</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    #{list items:_playlist.songs, as:'song'}
+      <tr>
+        <td>
+          ${song.title}
+        </td>
+        <td>
+          ${song.artist}
+        </td>
+        <td>        
+          ${song.duration}
+        </td>      
+         <td>
+            <a href="/playlists/${_playlist.id}/deletesong/${song.id}" class="ui tiny red button">Delete Song</a>
+          </td>         
+      </tr>
+    #{/list}
+  </tbody>
+</table>
