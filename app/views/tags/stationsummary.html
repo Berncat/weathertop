@@ -1,0 +1,43 @@
+<div class="ui two cards">
+    <div class="ui inverted card">
+        <div class="content">
+            <h1 class="ui large header">${_station.name} </h1>
+        </div>
+    </div>
+    <div class="ui card">
+        <div class="content">
+            <h1 class="ui large header">Latest reading</h1>
+            <table class="ui definition table">
+                <tbody>
+                #{list items:_station.latestReadings(), as:'reading'}
+                <tr>
+                    <td>Code</td>
+                    <td>${reading.code}
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="blue temperature high big icon"></i> Temperature</td>
+                    <td>
+                        ${reading.temperature} &#176C
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="blue wind big icon"></i> Wind</td>
+                    <td>
+                        ${reading.windSpeed} km/hr
+                        <br>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i class="blue chart bar big icon"></i> Pressure</td>
+                    <td>${reading.pressure} hPa</td>
+                </tr>
+                #{/list}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

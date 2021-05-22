@@ -19,7 +19,7 @@ Reading(r4):
   windSpeed: 3.5
 
 Station(s1):
-  name: tramore
+  name: Tramore
   readings:
     - r1
     - r2
