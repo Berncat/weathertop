@@ -14,11 +14,12 @@ public class Dashboard extends Controller
   public static void index() 
   {
     Logger.info("Rendering Dasboard");
-    Member member = Accounts.getLoggedInMember();
-    List<Playlist> playlists = member.playlists;
-    render ("dashboard.html", playlists);
+    //Member member = Accounts.getLoggedInMember();
+    //List<Playlist> playlists = member.playlists;
+    render ("dashboard.html");
   }
 
+  /*
   public static void deletePlaylist (Long id)
   {
     Logger.info("Deleting a Playlist");
@@ -39,4 +40,5 @@ public class Dashboard extends Controller
     member.save();
     redirect ("/dashboard");
   }
+   */
 }

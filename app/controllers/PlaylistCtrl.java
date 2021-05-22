@@ -16,6 +16,7 @@ public class PlaylistCtrl extends Controller
     render("playlist.html", playlist);
   }
 
+  /*
   public static void deletesong (Long id, Long songid)
   {
     Playlist playlist = Playlist.findById(id);
@@ -35,4 +36,6 @@ public class PlaylistCtrl extends Controller
     playlist.save();
     redirect ("/playlists/" + id);
   }
+   */
+
 }
