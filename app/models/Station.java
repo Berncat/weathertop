@@ -10,16 +10,15 @@ import javax.persistence.OneToMany;
 import play.db.jpa.Model;
 
 @Entity
-public class Playlist extends Model
+public class Station extends Model
 {
-  public String title;
+  public String name;
   @OneToMany(cascade = CascadeType.ALL)
-  public List<Song> songs = new ArrayList<Song>();
+  public List<Reading> readings = new ArrayList<Reading>();
   public int duration;
 
-  public Playlist(String title, int duration)
+  public Station(String name)
   {
-    this.title = title;
-    this.duration = duration;
+    this.name = name;
   }
 }

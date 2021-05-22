@@ -1,9 +1,6 @@
 package controllers;
 
-import java.util.List;
-
-import models.Playlist;
-import models.Song;
+import models.Station;
 import play.Logger;
 import play.mvc.Controller;
 
@@ -11,9 +8,9 @@ public class PlaylistCtrl extends Controller
 {
   public static void index(Long id)
   {
-    Playlist playlist = Playlist.findById(id);
+    Station station = Station.findById(id);
     Logger.info ("Playlist id = " + id);
-    render("playlist.html", playlist);
+    render("playlist.html", station);
   }
 
   /*
