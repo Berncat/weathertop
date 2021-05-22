@@ -3,28 +3,16 @@
 
 #{menu id:"dashboard"/}
 
+#{addstation /}
 #{list items:stations, as:'station'}
 <section class="ui segment">
     <h2 class="ui header">
         ${station.name}
     </h2>
-    #{stationsummary station:station/}
-    #{listreadings station:station/}
+    <a href="/station/${station.id}" class="ui icon button">
+        <i class="icon folder open"></i>
+    </a>
 </section>
 #{/list}
 
-<!--#{list items:playlists, as:'playlist'}
-  <section class="ui segment">
-    <h2 class="ui header">
-      ${playlist.title} 
-    </h2>
-      <p> Total Duration: ${playlist.duration} </p>
-      <a href="/playlists/${playlist.id}" class="ui icon button">
-        <i class="icon folder open"></i>
-      </a>
-      <a href="/dashboard/deleteplaylist/${playlist.id}" class="ui icon button">
-        <i class="icon trash"></i>
-      </a>
-  </section>
-#{/list}
-#{addplaylist /}-->
+

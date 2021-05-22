@@ -5,7 +5,8 @@ import java.util.HashMap;
 public class Conversions {
 
   public static double celsiusToFahrenheit(double temperature) {
-    return temperature * 9 / 5 + 32;
+    double calc = temperature * 9 / 5 + 32;
+    return Math.round(calc * 100.0) / 100.0;
   }
 
   public static int kmToBeaufort(double windSpeed) {
@@ -43,7 +44,7 @@ public class Conversions {
     HashMap<Integer, String> weatherCodeMap = new HashMap<Integer, String>();
 
     weatherCodeMap.put(100, "Clear");
-    weatherCodeMap.put(200, "Partial clouds");
+    weatherCodeMap.put(200, "Partial Clouds");
     weatherCodeMap.put(300, "Cloudy");
     weatherCodeMap.put(400, "Light Showers");
     weatherCodeMap.put(500, "Heavy Showers");

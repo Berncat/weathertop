@@ -19,7 +19,6 @@ public class Dashboard extends Controller
         station.weatherConditions = Conversions.weatherCodeToText(station.readings.get(station.readings.size()-1).code);
       }
     }
-
     //Member member = Accounts.getLoggedInMember();
     //List<Playlist> playlists = member.playlists;
     render ("dashboard.html", stations);
@@ -36,15 +35,17 @@ public class Dashboard extends Controller
     playlist.delete();
     redirect ("/dashboard");
   }
+  */
 
-  public static void addPlaylist (String title)
+  public static void addStation (String name)
   {
-    Logger.info("Adding a Playlist");
-    Member member = Accounts.getLoggedInMember();
-    Playlist playlist = new Playlist (title, 0);
-    member.playlists.add(playlist);
-    member.save();
+    //Member member = Accounts.getLoggedInMember();
+    Station station = new Station (name);
+    Logger.info("Adding station: " + name);
+    station.save();
+    //member.playlists.add(playlist);
+    //member.save();
     redirect ("/dashboard");
   }
-   */
+
 }

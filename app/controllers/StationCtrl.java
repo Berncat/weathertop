@@ -1,0 +1,43 @@
+package controllers;
+
+import models.Reading;
+import models.Station;
+import play.Logger;
+import play.mvc.Controller;
+import utils.Conversions;
+
+public class StationCtrl extends Controller
+{
+  public static void index(Long id)
+  {
+    Station station = Station.findById(id);
+    Logger.info ("Station id = " + id);
+    if(station.readings.size()>0) {
+      station.weatherConditions = Conversions.weatherCodeToText(station.readings.get(station.readings.size()-1).code);
+    }
+    render("station.html", station);
+  }
+
+  /*
+  public static void deletesong (Long id, Long songid)
+  {
+    Playlist playlist = Playlist.findById(id);
+    Song song = Song.findById(songid);
+    Logger.info ("Removing" + song.title);
+    playlist.songs.remove(song);
+    playlist.save();
+    song.delete();
+    render("station.html", playlist);
+  }
+   */
+
+  public static void addReading (Long id, int code, double temperature, double windSpeed, int pressure, double windDirection)
+  {
+    Reading reading = new Reading(code, temperature, windSpeed, pressure, windDirection);
+    Station station = Station.findById(id);
+    station.readings.add(reading);
+    station.save();
+    redirect ("/station/" + id);
+  }
+
+}

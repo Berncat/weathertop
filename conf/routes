@@ -12,16 +12,16 @@ GET     /                                       Start.index
 # GET    /logout                                  Accounts.logout
 
 GET     /dashboard                              Dashboard.index
+POST    /dashboard/addstation                 Dashboard.addStation
 # GET     /dashboard/deleteplaylist/{id}          Dashboard.deletePlaylist
 
-POST    /dashboard/addplaylist                 Dashboard.addPlaylist
+
 
 GET     /about                                  About.index
 GET     /admin                                  Admin.index
-# GET     /playlists/{id}                         PlaylistCtrl.index
+GET     /station/{id}                           StationCtrl.index
+POST    /station/{id}/addreading                StationCtrl.addReading
 # GET     /playlists/{id}/deletesong/{songid}     PlaylistCtrl.deleteSong
-
-POST    /playlists/{id}/addsong                  PlaylistCtrl.addSong
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

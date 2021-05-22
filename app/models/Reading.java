@@ -12,9 +12,9 @@ public class Reading extends Model
   public double temperature;
   public double windSpeed;
   public int pressure;
-  public int windDirection;
+  public double windDirection;
   
-  public Reading(int code, double temperature, double windSpeed, int pressure, int windDirection)
+  public Reading(int code, double temperature, double windSpeed, int pressure, double windDirection)
   {
     this.windSpeed = windSpeed;
     this.code = code;
