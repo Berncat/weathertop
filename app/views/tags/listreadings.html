@@ -4,6 +4,7 @@
     <th>Code</th>
     <th>Temperature</th>
     <th>Wind</th>
+    <th>Pressure</th>
   </tr>
   </thead>
   <tbody>
@@ -11,12 +12,21 @@
   <tr>
     <td>
       ${reading.code}
+      <br>
+      ${reading.weatherConditions()}
     </td>
     <td>
       ${reading.temperature} &#176C
+      <br>
+      ${reading.fahrenheit()} &#176F
     </td>
     <td>
       ${reading.windSpeed} km/hr
+      <br>
+      ${reading.beaufort()} bft
+    </td>
+    <td>
+      ${reading.pressure} hPa
     </td>
   </tr>
   #{/list}

@@ -3,6 +3,7 @@ package controllers;
 import models.Station;
 import play.Logger;
 import play.mvc.Controller;
+import utils.Conversions;
 
 import java.util.List;
 
@@ -12,6 +13,13 @@ public class Dashboard extends Controller
   {
     Logger.info("Rendering Dasboard");
     List<Station> stations = Station.findAll();
+
+    for (Station station : stations) {
+      if (station.readings.size() > 0) {
+        station.weatherConditions = Conversions.weatherCodeToText(station.readings.get(station.readings.size()-1).code);
+      }
+    }
+
     //Member member = Accounts.getLoggedInMember();
     //List<Playlist> playlists = member.playlists;
     render ("dashboard.html", stations);

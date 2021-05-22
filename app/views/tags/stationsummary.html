@@ -3,6 +3,11 @@
         <div class="content">
             <h1 class="ui large header">${_station.name} </h1>
         </div>
+        <div class="content">
+            <h3 class="center aligned header">
+                ${_station.weatherConditions}
+            </h3>
+        </div>
     </div>
     <div class="ui card">
         <div class="content">
@@ -14,6 +19,7 @@
                     <td>Code</td>
                     <td>${reading.code}
                         <br>
+                        ${reading.weatherConditions()}
                     </td>
                 </tr>
                 <tr>
@@ -21,6 +27,7 @@
                     <td>
                         ${reading.temperature} &#176C
                         <br>
+                        ${reading.fahrenheit()} &#176F
                     </td>
                 </tr>
                 <tr>
@@ -28,7 +35,7 @@
                     <td>
                         ${reading.windSpeed} km/hr
                         <br>
-                        <br>
+                        ${reading.beaufort()} bft
                     </td>
                 </tr>
                 <tr>

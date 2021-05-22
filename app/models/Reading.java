@@ -3,6 +3,7 @@ package models;
 import javax.persistence.Entity;
 
 import play.db.jpa.Model;
+import utils.Conversions;
 
 @Entity
 public class Reading extends Model
@@ -19,4 +20,13 @@ public class Reading extends Model
     this.temperature = temperature;
     this.pressure = pressure;
   }
+
+  public double fahrenheit () {
+    return Conversions.celsiusToFahrenheit(temperature);
+  }
+
+  public int beaufort () { return Conversions.kmToBeaufort(windSpeed);}
+
+  public String weatherConditions ()  { return Conversions.weatherCodeToText(code); }
+
 }
