@@ -1,16 +1,20 @@
 package controllers;
 
+import models.Station;
 import play.Logger;
 import play.mvc.Controller;
+
+import java.util.List;
 
 public class Dashboard extends Controller
 {
   public static void index() 
   {
     Logger.info("Rendering Dasboard");
+    List<Station> stations = Station.findAll();
     //Member member = Accounts.getLoggedInMember();
     //List<Playlist> playlists = member.playlists;
-    render ("dashboard.html");
+    render ("dashboard.html", stations);
   }
 
   /*

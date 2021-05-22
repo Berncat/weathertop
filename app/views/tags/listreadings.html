@@ -1,0 +1,24 @@
+<table class="ui fixed table">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>Temperature</th>
+    <th>Wind</th>
+  </tr>
+  </thead>
+  <tbody>
+  #{list items:_station.readings, as:'reading'}
+  <tr>
+    <td>
+      ${reading.code}
+    </td>
+    <td>
+      ${reading.temperature} &#176C
+    </td>
+    <td>
+      ${reading.windSpeed} km/hr
+    </td>
+  </tr>
+  #{/list}
+  </tbody>
+</table>
