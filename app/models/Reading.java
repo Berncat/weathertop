@@ -12,13 +12,15 @@ public class Reading extends Model
   public double temperature;
   public double windSpeed;
   public int pressure;
+  public int windDirection;
   
-  public Reading(int code, double temperature, double windSpeed, int pressure)
+  public Reading(int code, double temperature, double windSpeed, int pressure, int windDirection)
   {
     this.windSpeed = windSpeed;
     this.code = code;
     this.temperature = temperature;
     this.pressure = pressure;
+    this.windDirection = windDirection;
   }
 
   public double fahrenheit () {
@@ -28,5 +30,13 @@ public class Reading extends Model
   public int beaufort () { return Conversions.kmToBeaufort(windSpeed);}
 
   public String weatherConditions ()  { return Conversions.weatherCodeToText(code); }
+
+  public String windCompass ()  {
+    return Conversions.degreeToCompass(windDirection);
+  }
+
+  public double windChill ()  {
+    return Conversions.calculateWindChill(temperature,windSpeed);
+  }
 
 }
