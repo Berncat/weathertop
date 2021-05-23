@@ -16,7 +16,6 @@ public class StationCtrl extends Controller
     Member member = Accounts.getLoggedInMember();
     Station station = Station.findById(id);
     Logger.info("Station id = " + id);
-
       if (station.readings.size() > 0) {
         station.weatherConditions = Conversions.weatherCodeToText(station.readings.get(station.readings.size() - 1).code);
         station.weatherIcon = Conversions.weatherCodeToIcon(station.readings.get(station.readings.size() - 1).code);
@@ -26,6 +25,9 @@ public class StationCtrl extends Controller
         station.maxWindSpeed = Analytics.maxWindSpeed(station.readings).windSpeed;
         station.minPressure = Analytics.minPressure(station.readings).pressure;
         station.maxPressure = Analytics.maxPressure(station.readings).pressure;
+        station.temperatureTrend = Analytics.temperatureTrend(station.readings);
+        station.windSpeedTrend = Analytics.windSpeedTrend(station.readings);
+        station.pressureTrend = Analytics.pressureTrend(station.readings);
       }
       render("station.html", station);
   }

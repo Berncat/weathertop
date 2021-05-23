@@ -4,10 +4,9 @@
 #{menu id:"station"/}
 
 <section class="ui segment">
-  <h2 class="ui header">
-    ${station.name}
-  </h2>
   #{stationsummary station:station /}
+</section>
   #{addreading station:station /}
+<section class="ui segment">
   #{listreadings station:station /}
 </section>

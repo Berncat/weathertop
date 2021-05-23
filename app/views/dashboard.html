@@ -5,14 +5,14 @@
 
 #{addstation /}
 #{list items:stations, as:'station'}
-<section class="ui segment">
-    <h2 class="ui header">
-        ${station.name}
-    </h2>
-    <a href="/station/${station.id}" class="ui icon button">
-        <i class="icon folder open"></i>
-    </a>
+<section class="ui attached segment">
+    #{stationsummary station:station/}
 </section>
+<div class="ui two bottom attached buttons">
+    <a class="ui right labeled icon blue button" href="/station/${station.id}"><i class="eye icon"></i> View all readings</a>
+    <a class="ui right labeled icon grey button" href="/station/${station.id}"><i class="trash alternate icon"></i> Delete Station</a>
+</div>
+<br>
 #{/list}
 
 

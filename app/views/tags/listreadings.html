@@ -1,6 +1,7 @@
 <table class="ui fixed table">
   <thead>
   <tr>
+    <th>Date/Time</th>
     <th>Code</th>
     <th>Temperature</th>
     <th>Wind</th>
@@ -10,6 +11,9 @@
   <tbody>
   #{list items:_station.readings, as:'reading'}
   <tr>
+    <td>
+      ${reading.timeStamp}
+    </td>
     <td>
       ${reading.code}
       <br>

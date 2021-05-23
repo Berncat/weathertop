@@ -15,14 +15,17 @@ public class Station extends Model {
   public String name;
   public double latitude;
   public double longitude;
+  public String weatherConditions;
+  public String weatherIcon;
   public double minTemperature;
   public double maxTemperature;
   public double minWindSpeed;
   public double maxWindSpeed;
   public int minPressure;
   public int maxPressure;
-  public String weatherConditions;
-  public String weatherIcon;
+  public String temperatureTrend;
+  public String windSpeedTrend;
+  public String pressureTrend;
   @OneToMany(cascade = CascadeType.ALL)
   public List<Reading> readings = new ArrayList<Reading>();
 

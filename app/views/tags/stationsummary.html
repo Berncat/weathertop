@@ -1,4 +1,4 @@
-<div class="ui two cards">
+<div class="ui three cards">
   <div class="ui inverted card">
     <div class="content">
       <h1 class="ui large header">${_station.name} </h1>
@@ -19,10 +19,106 @@
   </div>
   <div class="ui card">
     <div class="content">
+      <h1 class="ui large header">Stats </h1>
+    </div>
+    <div class="content">
+      <h4 class="ui center aligned header">Temperature (&#176C)</h4>
+      <div class="ui three statistics">
+        <div class="ui tiny statistic">
+          <div class="value">
+            ${_station.minTemperature}
+          </div>
+          <div class="label">
+            Min
+          </div>
+        </div>
+        <div class="ui tiny statistic">
+          <div class="value">
+            ${_station.maxTemperature}
+          </div>
+          <div class="label">
+            Max
+          </div>
+        </div>
+        <div class="ui tiny statistic">
+          <div class="value">
+            <i class="blue ${_station.temperatureTrend} icon"></i>
+          </div>
+          <div class="label">
+            Trend
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <h4 class="ui center aligned header">Wind Speed (km/hr)</h4>
+      <div class="ui three statistics">
+        <div class="ui tiny statistic">
+          <div class="value">
+            ${_station.minWindSpeed}
+          </div>
+          <div class="label">
+            Min
+          </div>
+        </div>
+        <div class="ui tiny statistic">
+          <div class="value">
+            ${_station.maxWindSpeed}
+          </div>
+          <div class="label">
+            Max
+          </div>
+        </div>
+        <div class="ui tiny statistic">
+          <div class="value">
+            <i class="blue ${_station.windSpeedTrend} icon"></i>
+          </div>
+          <div class="label">
+            Trend
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <h4 class="ui center aligned header">Pressure (hPa)</h4>
+      <div class="ui three statistics">
+        <div class="ui tiny statistic">
+          <div class="value">
+            ${_station.minPressure}
+          </div>
+          <div class="label">
+            Min
+          </div>
+        </div>
+        <div class="ui tiny statistic">
+          <div class="value">
+            ${_station.maxPressure}
+          </div>
+          <div class="label">
+            Max
+          </div>
+        </div>
+        <div class="ui tiny statistic">
+          <div class="value">
+            <i class="blue ${_station.pressureTrend} icon"></i>
+          </div>
+          <div class="label">
+            Trend
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui card">
+    <div class="content">
       <h1 class="ui large header">Latest reading</h1>
       <table class="ui definition table">
         <tbody>
         #{list items:_station.latestReadings(), as:'reading'}
+        <tr>
+          <td><i class="blue clock big icon"></i> Date/Time</td>
+          <td>${reading.timeStamp}</td>
+        </tr>
         <tr>
           <td><i class="blue ${reading.weatherIcon()} big icon"></i> Code</td>
           <td>${reading.code}
@@ -57,19 +153,6 @@
         #{/list}
         </tbody>
       </table>
-    </div>
-    <div class="extra content">
-      Min Temp: ${_station.minTemperature} &#176C
-      <br>
-      Max Temp: ${_station.maxTemperature} &#176C
-      <br>
-      Min Speed: ${_station.minWindSpeed} km/hr
-      <br>
-      Max Speed: ${_station.maxWindSpeed} km/hr
-      <br>
-      Min Pressure: ${_station.minPressure} hPa
-      <br>
-      Max Pressure: ${_station.maxPressure} hPa
     </div>
   </div>
 </div>
