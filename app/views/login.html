@@ -2,20 +2,31 @@
 #{set title:'login' /}
 #{welcomemenu id:"login"/}
 
-<div class="ui two column middle aligned grid basic segment">
-  <div class="column">
-    <form class="ui stacked segment form" action="/authenticate" method="POST">
-      <h3 class="ui header">Log-in</h3>
-      <div class="field">
-        <label>Email</label> <input placeholder="Email" name="email">
-      </div>
-      <div class="field">
-        <label>Password</label> <input type="password" name="password">
-      </div>
-      <button class="ui blue submit button">Login</button>
-    </form>
+<div class="ui placeholder segment">
+  <div class="ui two column very relaxed stackable grid">
+    <div class="column">
+      <form class="ui form" action="/authenticate" method="POST">
+        <div class="field">
+          <label>Username</label>
+          <div class="ui left icon input">
+            <input type="text" name="email" placeholder="Email"><i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="ui left icon input">
+            <input type="password" name="password" placeholder="Password"><i class="lock icon"></i>
+          </div>
+        </div>
+        <br>
+        <button class="ui fluid blue button">Login</button>
+      </form>
+    </div>
+    <div class="middle aligned column">
+      <a href="/signup" class="ui big blue button"><i class="signup icon"></i>Sign Up</a>
+    </div>
   </div>
-  <div class="column">
-    <img class="ui image" src="/public/images/todo-2.jpg">
+  <div class="ui vertical divider">
+    Or
   </div>
 </div>

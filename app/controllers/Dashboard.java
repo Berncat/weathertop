@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Station;
+import models.Member;
 import play.Logger;
 import play.mvc.Controller;
 import utils.Analytics;
@@ -12,8 +13,9 @@ public class Dashboard extends Controller
 {
   public static void index() 
   {
-    Logger.info("Rendering Dasboard");
-    List<Station> stations = Station.findAll();
+    Logger.info("Rendering Dashboard");
+    Member member = Accounts.getLoggedInMember();
+    List<Station> stations = member.stations;
 
     for (Station station : stations) {
       if (station.readings.size() > 0) {
@@ -27,8 +29,6 @@ public class Dashboard extends Controller
         station.maxPressure = Analytics.maxPressure(station.readings).pressure;
       }
     }
-    //Member member = Accounts.getLoggedInMember();
-    //List<Playlist> playlists = member.playlists;
     render ("dashboard.html", stations);
   }
 
@@ -47,12 +47,11 @@ public class Dashboard extends Controller
 
   public static void addStation (String name, double latitude, double longitude)
   {
-    //Member member = Accounts.getLoggedInMember();
+    Member member = Accounts.getLoggedInMember();
     Station station = new Station (name, latitude, longitude);
+    member.stations.add(station);
+    member.save();
     Logger.info("Adding station: " + name);
-    station.save();
-    //member.playlists.add(playlist);
-    //member.save();
     redirect ("/dashboard");
   }
 

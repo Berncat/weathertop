@@ -49,4 +49,11 @@ Member(m1):
   lastname : Simpson
   stations :
   - s1
-  - s2
+
+Member(m1):
+  email: marge@simpson.com
+  password: secret
+  firstname: Marge
+  lastname : Simpson
+  stations :
+    - s2

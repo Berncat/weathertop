@@ -6,12 +6,12 @@ import play.mvc.Controller;
 
 public class Accounts extends Controller {
 
-  /*
   public static void signup() {
     render("signup.html");
   }
 
   public static void login() {
+    Logger.info("Rendering Login");
     render("login.html");
   }
 
@@ -31,6 +31,7 @@ public class Accounts extends Controller {
       session.put("logged_in_Memberid", member.id);
       redirect("/dashboard");
     } else {
+      String error = "Authentication failed";
       Logger.info("Authentication failed");
       redirect("/login");
     }
@@ -51,5 +52,4 @@ public class Accounts extends Controller {
     }
     return member;
   }
-   */
 }
