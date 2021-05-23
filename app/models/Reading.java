@@ -1,16 +1,14 @@
 package models;
 
 import javax.persistence.Entity;
-
 import play.db.jpa.Model;
 import utils.Conversions;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-public class Reading extends Model
-{
+public class Reading extends Model {
+
   public String timeStamp;
   public int code;
   public double temperature;
@@ -18,9 +16,8 @@ public class Reading extends Model
   public int pressure;
   public double windDirection;
   
-  public Reading(int code, double temperature, double windSpeed, int pressure, double windDirection)
-  {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy - HH:mm:ss");
+  public Reading(int code, double temperature, double windSpeed, int pressure, double windDirection) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd - HH:mm:ss");
     timeStamp = LocalDateTime.now().format(formatter);
     this.windSpeed = windSpeed;
     this.code = code;

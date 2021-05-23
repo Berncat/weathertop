@@ -6,6 +6,7 @@
     <th>Temperature</th>
     <th>Wind</th>
     <th>Pressure</th>
+    <th>Remove</th>
   </tr>
   </thead>
   <tbody>
@@ -35,6 +36,9 @@
     </td>
     <td>
       ${reading.pressure} hPa
+    </td>
+    <td>
+      <a class="ui right labeled icon grey button" href="/station/${_station.id}/deletereading/${reading.id}" ><i class="trash alternate icon"></i> Remove</a>
     </td>
   </tr>
   #{/list}

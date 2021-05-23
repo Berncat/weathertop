@@ -1,11 +1,12 @@
 <nav class="ui menu">
-  <header class="ui header item"> <a href="#"> WeatherTop </a></header>
-  <div class="right menu">
-    <a id="dashboard" class="item" href="/dashboard"> Dashboard  </a>
-    <a id="logout" class="item" href="/logout"> Logout </a>
+  <header class="ui header item"><a href="#"> WeatherTop </a></header>
+  <div class="ui labeled icon right blue menu">
+    <a id="start" class="item" href="/dashboard"> <i class="table icon"></i>Dashboard</a>
+    <a id="login" class="item" href="/update"> <i class="sync icon"></i>Update Login Details</a>
+    <a id="about" class="item" href="/logout"> <i class="sign out icon"></i>Logout</a>
   </div>
 </nav>
 
 <script>
-  $("#${_id}").addClass("active item");
+    $("#${_id}").addClass("active item");
 </script>

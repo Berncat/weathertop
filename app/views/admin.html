@@ -1,39 +1,55 @@
 #{extends 'main.html' /}
 #{set title:'Dashboard' /}
-
 #{menu id:"admin"/}
 
-  <section class="ui segment">
+<section class="ui segment">
   <h2 class="ui header">
-    All Known Songs in the Database:
+    All Readings in the Database:
   </h2>
   <table class="ui fixed table">
     <thead>
-      <tr>
-        <th>ID </th>
-        <th>Song</th>
-        <th>Artist</th>
-        <th>Duration</th>
-      </tr>
+    <tr>
+      <th>ID</th>
+      <th>Date/Time</th>
+      <th>Code</th>
+      <th>Temperature</th>
+      <th>Wind</th>
+      <th>Pressure</th>
+    </tr>
     </thead>
     <tbody>
-      #{list items:readings, as:'song'}
-        <tr>
-          <td>
-            ${song.id}
-          </td>
-          <td>
-            ${song.title}
-          </td>
-          <td>
-            ${song.artist}
-          </td>
-          <td>        
-            ${song.duration}
-          </td>        
-        </tr>
-      #{/list}
+    #{list items: readings, as:'reading'}
+    <tr>
+      <td>
+        ${reading.id}
+      </td>
+      <td>
+        ${reading.timeStamp}
+      </td>
+      <td>
+        ${reading.code}
+        <br>
+        ${reading.weatherConditions()}
+      </td>
+      <td>
+        ${reading.temperature} &#176C
+        <br>
+        ${reading.fahrenheit()} &#176F
+      </td>
+      <td>
+        ${reading.windSpeed} km/hr
+        <br>
+        ${reading.beaufort()} bft
+        <br>
+        Feels like: ${reading.windChill()} &#176C
+        <br>
+        Direction: ${reading.windCompass()} ${reading.windDirection} &#176
+      </td>
+      <td>
+        ${reading.pressure} hPa
+      </td>
+    </tr>
+    #{/list}
     </tbody>
   </table>
 </section>
-

@@ -40,7 +40,6 @@ public class Conversions {
   }
 
   public static String weatherCodeToText(int weatherCode) {
-
     HashMap<Integer, String> weatherCodeMap = new HashMap<Integer, String>();
 
     weatherCodeMap.put(100, "Clear");
@@ -106,7 +105,6 @@ public class Conversions {
   }
 
   public static String weatherCodeToIcon(int weatherCode) {
-
     HashMap<Integer, String> weatherCodeMap = new HashMap<Integer, String>();
 
     weatherCodeMap.put(100, "sun");

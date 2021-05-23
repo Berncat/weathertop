@@ -15,6 +15,10 @@ public class Accounts extends Controller {
     render("login.html");
   }
 
+  public static void update() {
+    render("update.html");
+  }
+
   public static void register(String firstname, String lastname, String email, String password) {
     Logger.info("Registering new user " + email);
     Member member = new Member(firstname, lastname, email, password);
@@ -40,6 +44,17 @@ public class Accounts extends Controller {
   public static void logout() {
     session.clear();
     redirect("/");
+  }
+
+  public static void updated(String firstname, String lastname, String email, String password) {
+    Logger.info("updating user details");
+    getLoggedInMember().firstname = firstname;
+    getLoggedInMember().lastname = lastname;
+    getLoggedInMember().email = email;
+    getLoggedInMember().password = password;
+    getLoggedInMember().save();
+    session.clear();
+    redirect("/login");
   }
 
   public static Member getLoggedInMember() {

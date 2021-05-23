@@ -84,12 +84,11 @@ public class Analytics {
   }
 
   public static String temperatureTrend(List<Reading> readings) {
-
     if (readings.size() >= 3) {
-      if (readings.get(readings.size()-1).temperature > readings.get(readings.size() - 2).temperature
+      if (readings.get(readings.size() - 1).temperature > readings.get(readings.size() - 2).temperature
           && readings.get(readings.size() - 2).temperature > readings.get(readings.size() - 3).temperature) {
         return "arrow up";
-      } else if (readings.get(readings.size()-1).temperature < readings.get(readings.size() - 2).temperature
+      } else if (readings.get(readings.size() - 1).temperature < readings.get(readings.size() - 2).temperature
           && readings.get(readings.size() - 2).temperature < readings.get(readings.size() - 3).temperature) {
         return "arrow down";
       } else
@@ -99,12 +98,11 @@ public class Analytics {
   }
 
   public static String windSpeedTrend(List<Reading> readings) {
-
     if (readings.size() >= 3) {
-      if (readings.get(readings.size()-1).windSpeed > readings.get(readings.size() - 2).windSpeed
+      if (readings.get(readings.size() - 1).windSpeed > readings.get(readings.size() - 2).windSpeed
           && readings.get(readings.size() - 2).windSpeed > readings.get(readings.size() - 3).windSpeed) {
         return "arrow up";
-      } else if (readings.get(readings.size()-1).windSpeed < readings.get(readings.size() - 2).windSpeed
+      } else if (readings.get(readings.size() - 1).windSpeed < readings.get(readings.size() - 2).windSpeed
           && readings.get(readings.size() - 2).windSpeed < readings.get(readings.size() - 3).windSpeed) {
         return "arrow down";
       } else
@@ -114,13 +112,12 @@ public class Analytics {
   }
 
   public static String pressureTrend(List<Reading> readings) {
-
     if (readings.size() >= 3) {
-      if (readings.get(readings.size()-1).pressure > readings.get(readings.size() - 2).pressure
+      if (readings.get(readings.size() - 1).pressure > readings.get(readings.size() - 2).pressure
           && readings.get(readings.size() - 2).pressure > readings.get(readings.size() - 3).pressure) {
         return "arrow up";
-      } else if (readings.get(readings.size()-1).pressure < readings.get(readings.size() - 2).pressure
-          && readings.get(readings.size() - 2).pressure< readings.get(readings.size() - 3).pressure) {
+      } else if (readings.get(readings.size() - 1).pressure < readings.get(readings.size() - 2).pressure
+          && readings.get(readings.size() - 2).pressure < readings.get(readings.size() - 3).pressure) {
         return "arrow down";
       } else
         return "arrows alternate horizontal";

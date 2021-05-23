@@ -2,11 +2,9 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-
 import play.db.jpa.Model;
 
 @Entity
@@ -45,5 +43,9 @@ public class Station extends Model {
       latestReadings = readings.subList(readings.size() - 1, readings.size());
     }
     return latestReadings;
+  }
+
+  public String getName ()    {
+    return name;
   }
 }
