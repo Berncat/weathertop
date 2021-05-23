@@ -39,4 +39,5 @@ public class Reading extends Model
     return Conversions.calculateWindChill(temperature,windSpeed);
   }
 
+  public String weatherIcon () {return Conversions.weatherCodeToIcon(code);}
 }

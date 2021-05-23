@@ -13,16 +13,26 @@ import play.db.jpa.Model;
 public class Station extends Model {
 
   public String name;
+  public double latitude;
+  public double longitude;
+  public double minTemperature;
+  public double maxTemperature;
+  public double minWindSpeed;
+  public double maxWindSpeed;
+  public int minPressure;
+  public int maxPressure;
   public String weatherConditions;
-
+  public String weatherIcon;
   @OneToMany(cascade = CascadeType.ALL)
   public List<Reading> readings = new ArrayList<Reading>();
 
-  public Station(String name) {
+  public Station(String name, double latitude, double longitude) {
     this.name = name;
+    this.latitude = latitude;
+    this.longitude = longitude;
   }
 
-  /*I found the subList method in the java api, I though I would use this method for latest reading
+  /*I found the subList method in the java api, I thought I would use this method for displaying the latest reading
   as you if you wished to evolve the app further you could maybe ask the user how many of the last readings
   they would like to see.
    */

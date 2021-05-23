@@ -1,54 +1,75 @@
 <div class="ui two cards">
-    <div class="ui inverted card">
-        <div class="content">
-            <h1 class="ui large header">${_station.name} </h1>
-        </div>
-        <div class="content">
-            <h3 class="center aligned header">
-                ${_station.weatherConditions}
-            </h3>
-        </div>
+  <div class="ui inverted card">
+    <div class="content">
+      <h1 class="ui large header">${_station.name} </h1>
     </div>
-    <div class="ui card">
-        <div class="content">
-            <h1 class="ui large header">Latest reading</h1>
-            <table class="ui definition table">
-                <tbody>
-                #{list items:_station.latestReadings(), as:'reading'}
-                <tr>
-                    <td>Code</td>
-                    <td>${reading.code}
-                        <br>
-                        ${reading.weatherConditions()}
-                    </td>
-                </tr>
-                <tr>
-                    <td><i class="blue temperature high big icon"></i> Temperature</td>
-                    <td>
-                        ${reading.temperature} &#176C
-                        <br>
-                        ${reading.fahrenheit()} &#176F
-                    </td>
-                </tr>
-                <tr>
-                    <td><i class="blue wind big icon"></i> Wind</td>
-                    <td>
-                        ${reading.windSpeed} km/hr
-                        <br>
-                        ${reading.beaufort()} bft
-                        <br>
-                        Feels like: ${reading.windChill()} &#176C
-                        <br>
-                        Direction: ${reading.windDirection} &#176 ${reading.windCompass()}
-                    </td>
-                </tr>
-                <tr>
-                    <td><i class="blue chart bar big icon"></i> Pressure</td>
-                    <td>${reading.pressure} hPa</td>
-                </tr>
-                #{/list}
-                </tbody>
-            </table>
-        </div>
+    <h2 class="ui center aligned icon">
+      <i class="blue ${_station.weatherIcon} massive icon"></i>
+    </h2>
+    <div class="content">
+      <h3 class="center aligned header">
+        ${_station.weatherConditions}
+      </h3>
     </div>
+    <div class="extra content">
+      Latitude: ${_station.latitude} &#176
+      <br>
+      Longitude: ${_station.longitude} &#176
+    </div>
+  </div>
+  <div class="ui card">
+    <div class="content">
+      <h1 class="ui large header">Latest reading</h1>
+      <table class="ui definition table">
+        <tbody>
+        #{list items:_station.latestReadings(), as:'reading'}
+        <tr>
+          <td><i class="blue ${reading.weatherIcon()} big icon"></i> Code</td>
+          <td>${reading.code}
+            <br>
+            ${reading.weatherConditions()}
+          </td>
+        </tr>
+        <tr>
+          <td><i class="blue temperature high big icon"></i> Temperature</td>
+          <td>
+            ${reading.temperature} &#176C
+            <br>
+            ${reading.fahrenheit()} &#176F
+          </td>
+        </tr>
+        <tr>
+          <td><i class="blue wind big icon"></i> Wind</td>
+          <td>
+            ${reading.windSpeed} km/hr
+            <br>
+            ${reading.beaufort()} bft
+            <br>
+            Feels like: ${reading.windChill()} &#176C
+            <br>
+            Direction: ${reading.windCompass()} ${reading.windDirection} &#176
+          </td>
+        </tr>
+        <tr>
+          <td><i class="blue chart bar big icon"></i> Pressure</td>
+          <td>${reading.pressure} hPa</td>
+        </tr>
+        #{/list}
+        </tbody>
+      </table>
+    </div>
+    <div class="extra content">
+      Min Temp: ${_station.minTemperature} &#176C
+      <br>
+      Max Temp: ${_station.maxTemperature} &#176C
+      <br>
+      Min Speed: ${_station.minWindSpeed} km/hr
+      <br>
+      Max Speed: ${_station.maxWindSpeed} km/hr
+      <br>
+      Min Pressure: ${_station.minPressure} hPa
+      <br>
+      Max Pressure: ${_station.maxPressure} hPa
+    </div>
+  </div>
 </div>

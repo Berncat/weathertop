@@ -104,4 +104,20 @@ public class Conversions {
 
     return Math.round(calc * 100.0) / 100.0;
   }
+
+  public static String weatherCodeToIcon(int weatherCode) {
+
+    HashMap<Integer, String> weatherCodeMap = new HashMap<Integer, String>();
+
+    weatherCodeMap.put(100, "sun");
+    weatherCodeMap.put(200, "cloud sun");
+    weatherCodeMap.put(300, "cloud");
+    weatherCodeMap.put(400, "cloud sun rain");
+    weatherCodeMap.put(500, "cloud showers heavy");
+    weatherCodeMap.put(600, "cloud rain");
+    weatherCodeMap.put(700, "snowflake");
+    weatherCodeMap.put(800, "bolt");
+
+    return weatherCodeMap.get(weatherCode);
+  }
 }
